@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import MyButton from '@mui/material/Button';
 import MyDialog from '@mui/material/Dialog';
 import MyDialogActions from '@mui/material/DialogActions';
@@ -24,12 +24,8 @@ export default function MyDeleteAlert(props) {
   };
 
   return (
-    <div>
-      <MyButton
-        variant="contained"
-        style={{ backgroundColor: '#DE0344', color: '#fff' }}
-        onClick={handleOpen}
-      >
+    <div style={{ textAlign: 'center' }}>
+      <MyButton variant="contained" color="error" onClick={handleOpen}>
         Delete
       </MyButton>
       <MyDialog
@@ -38,15 +34,21 @@ export default function MyDeleteAlert(props) {
         aria-labelledby="my-alert-dialog-title"
         aria-describedby="my-alert-dialog-description"
       >
-        <MyDialogTitle id="my-alert-dialog-title">{"Delete"}</MyDialogTitle>
+        <MyDialogTitle id="my-alert-dialog-title" style={{ backgroundColor: '#03DE44', color: '#fff', borderBottom: '4px solid #03DE44' }}>
+          {"Delete"}
+        </MyDialogTitle>
         <MyDialogContent>
           <MyDialogContentText id="my-alert-dialog-description">
-            Confirm Deleting
+            Confirm Deleting Training
           </MyDialogContentText>
         </MyDialogContent>
         <MyDialogActions>
-          <MyButton style={{ color: '#DE0344' }} onClick={handleDelete} autoFocus>Delete</MyButton>
-          <MyButton style={{ color: '#03DE44' }} onClick={handleClose}>Cancel</MyButton>
+          <MyButton style={{ backgroundColor: '#03DE44', color: '#fff', ':hover': { backgroundColor: '#00A859' } }} onClick={handleDelete} autoFocus>
+            Delete
+          </MyButton>
+          <MyButton onClick={handleClose} variant="outlined" color="error">
+            Cancel
+          </MyButton>
         </MyDialogActions>
       </MyDialog>
     </div>
